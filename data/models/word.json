@@ -1,0 +1,20 @@
+[
+  {
+    "name": "word",
+    "short": "A word.",
+    "payload": {
+      "index": ["word.get"],
+      "get": {
+        "id": "int",
+        "size": {
+          "type": "int",
+          "short": "The length of the word."
+        },
+        "content": "str"
+      },
+      "post": {
+        "content": "str"
+      }
+    }
+  }
+]

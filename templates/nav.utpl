@@ -1,0 +1,6 @@
+<div class='pure-menu pure-menu-open'>
+  <a href='/#/' class='pure-menu-heading'><%= app.title %></a>
+
+  <ul>
+    <% for (endpoint_group in app.endpoints) { %>
+      <li href='/#/<%= endpoint_group %>'>endpoint_group</li>

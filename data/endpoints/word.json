@@ -1,0 +1,31 @@
+[
+  {
+    "name": "word-index",
+    "url": "/api/word/",
+    "method": "get",
+    "url-params": {
+      "word-ids": "A list of word ids to filter by."
+    },
+    "short": "Gets a list of words.",
+    "out": "word.index",
+    "errors": ["forbidden"]
+  },
+  {
+    "name": "word-get",
+    "url": "/api/word/{word_id}",
+    "method": "get",
+    "short": "Gets a word.",
+    "out": "word.get",
+    "errors": ["not-found", "forbidden"]
+  },
+  {
+    "name": "word-post",
+    "url": "/api/word/",
+    "method": "post",
+    "short": "Posts a new word.",
+    "long": "Users may use this endpoint to post a new word to the database.  The word\"s size is calculated automatically and will be ignored if included.",
+    "in": "word.post",
+    "out": "word.get",
+    "errors": ["not-found", "forbidden", "bad-input"]
+  }
+]
