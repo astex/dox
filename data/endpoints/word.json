@@ -37,5 +37,12 @@
     "in": "word.post",
     "out": "word.get",
     "errors": ["not-found", "forbidden", "bad-input"]
+  },
+  {
+    "name": "word-delete",
+    "url": "/api/word/{word_id}",
+    "method": "delete",
+    "short": "Deletes a word.",
+    "long": "Users may use this endpoint to delete a word from the database.  All data is ignored and a successful hit will have a 204 NO CONTENT status code."
   }
 ]

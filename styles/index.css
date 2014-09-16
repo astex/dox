@@ -122,3 +122,17 @@ body {
 .endpoint.put .method {
   background-color: #e68a00;
 }
+
+/* delete endpoints */
+
+.endpoint.delete {
+  border-color: #a41e22;
+}
+
+.endpoint.delete .head {
+  background-color: #f3d6d7;
+}
+
+.endpoint.delete .method {
+  background-color: #a41e22;
+}
