@@ -43,6 +43,44 @@ body {
   }
 }
 
+.sidebar-nav {
+  overflow-x: hidden;
+}
+
+.nav>li.api-link>a {
+  display: table-cell;
+}
+
+li.endpoint-link {
+  padding-left: 15px;
+  font-size: .8em;
+  white-space: nowrap;
+}
+
+li.endpoint-link .method {
+  text-transform: uppercase;
+}
+
+li.endpoint-link .method.get {
+  color: #0f6ab4;
+}
+
+li.endpoint-link .method.post {
+  color: #10a54a;
+}
+
+li.endpoint-link .method.put {
+  color: #e68a00;
+}
+
+li.endpoint-link .method.delete {
+  color: #a41e22;
+}
+
+.sidebar-nav .navbar {
+  margin-bottom: 0;
+}
+
 .navbar-default {
   border: none;
   background-color: inherit;

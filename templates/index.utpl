@@ -20,7 +20,20 @@
           <ul class='nav navbar-nav'>
             <li><a href='/#/'><h2><%= app.get('title') %></h2></a></li>
             <% app.apis.each(function(api) { %>
-              <li><a href='/#/api/<%= api.get('name') %>'><%= api.get('title') %></a></li>
+              <li class='api-link' data-api='<%= api.get('name') %>'>
+                <a href='/#/api/<%= api.get('name') %>'><%= api.get('title') %></a>
+                <a href='#!' class='endpoints-toggle'>(endpoints)</a>
+              </li>
+              <% api.endpoints.each(function(endpoint) { %>
+                <li class='endpoint-link <%= api.get('name') %>-endpoint-link'>
+                  <a href='/#/endpoint/<%= endpoint.get('name') %>'>
+                    <span class='method <%= endpoint.get('method') %>'>
+                      <%= endpoint.get('method') %>
+                    </span>
+                    <span class='url'><%= endpoint.get('url') %></span>
+                  </a>
+                </li>
+              <% }); %>
             <% }); %>
           </ul>
         </div>
