@@ -13,7 +13,7 @@ define(
       },
       scroll: function(loc) {
         var scroll = (loc ? $(loc).offset().top : 0);
-        $('html, body').scrollTop(scroll);
+        $('html, body').animate({ scrollTop: scroll });
       },
       events: {
         'click .topper': 'scrollTop',
