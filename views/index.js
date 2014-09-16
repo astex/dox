@@ -30,7 +30,7 @@ define(
           api_name = $el.parents('.api-link').data('api'),
           endpoint_links = this.$('.' + api_name + '-endpoint-link');
 
-        endpoint_links.toggle();
+        endpoint_links.slideToggle();
       }
     });
   }
