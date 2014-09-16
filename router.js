@@ -1,25 +1,14 @@
 define(['jquery', 'backbone'], function($, Backbone) {
   var Router = Backbone.Router.extend({
     routes: {
-      '/': 'index'
+      '': 'index'
     },
-    render: function(controllerFile) {
+    render: function(viewFile) {
       var router = this;
 
-      require([controllerFile], function(controller) {
-        if (router.view) {
-          $('body').removeClass(router.view.class_);
-        }
-
-        router.view = controller();
+      require([viewFile], function(View) {
+        router.view = new View({model: router.app});
         router.view.render();
-
-        $(document).prop(
-          'title',
-          'Dox - ' + router.view.title
-        );
-
-        $('body').addClass(router.view.class_);
       });
     },
     index: function() {
@@ -27,5 +16,5 @@ define(['jquery', 'backbone'], function($, Backbone) {
     }
   });
 
-  return new Router();
+  return new Router;
 });

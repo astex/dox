@@ -1,0 +1,60 @@
+<div class='row'>
+  <div class='col-sm-3'>
+    <div class='sidebar-nav'>
+      <div class='navbar navbar-default' role='navigation'>
+        <div class='navbar-header'>
+          <button
+            type='button'
+            class='navbar-toggle'
+            data-toggle='collapse'
+            data-target='.sidebar-navbar-collapse'
+            >
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <span class='visible-xs navbar-brand'><%= app.get('title') %></span>
+        </div>
+
+        <div class='navbar-collapse collapse sidebar-navbar-collapse'>
+          <ul class='nav navbar-nav'>
+            <li><a href='/#/'><h2><%= app.get('title') %></h1></a></li>
+            <% app.apis.each(function(api) { %>
+              <li><a href='/#/<%= api.get('name') %>'><%= api.get('title') %></a></li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-9'>
+    <div class='jumbotron'>
+      <h1><%= app.get('title') %></h1>
+      <p><%= app.get('short') %></p>
+    </div>
+
+    <% app.apis.each(function(api) { %>
+      <div class='api' id='<%= api.get('name') %>-api'>
+        <h2><%= api.get('title') %></h2>
+        <p><%= api.get('short') %></p>
+        <div class='endpoints'>
+          <% api.endpoints.each(function(endpoint) { %>
+            <div
+              class='endpoint <%= endpoint.get('method') %>'
+              id='<%= endpoint.get('name') %>-endpoint'
+              >
+              <div class='head'>
+                <div class='method'><%= endpoint.get('method').toUpperCase() %></div>
+                <%= endpoint.get('url') %>
+                <div class='short'><%= endpoint.get('short') %></div>
+              </div>
+              <div class='body'>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>

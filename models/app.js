@@ -47,7 +47,7 @@ define(
           endpoints.fetch({success: function() {
             var newEndpoints = endpoints.models;
 
-            api.endpoints = newEndpoints;
+            api.endpoints = endpoints;
             if (app.endpoints) {
               newEndpoints = app.endpoints.models.concat(newEndpoints);
             }
