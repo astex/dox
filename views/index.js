@@ -8,6 +8,11 @@ define(
       el: $('body'),
       render: function() {
         this.$el.html(this.template({app: this.model}));
+        $(document).prop('title', this.model.get('title'));
+      },
+      scroll: function(loc) {
+        var scroll = (loc ? $(loc).offset().top : 0);
+        $('html', 'body').animate({scrollTop: scroll}, 2000);
       }
     });
   }

@@ -1,19 +1,28 @@
 define(['jquery', 'backbone'], function($, Backbone) {
   var Router = Backbone.Router.extend({
     routes: {
-      '': 'index'
+      '': 'index',
+      ':api': 'api'
     },
-    render: function(viewFile) {
-      var router = this;
+    render: function(loc) {
+      var
+        router = this,
+        success = function() {
+          router.view.scroll(loc);
+        };
 
-      require([viewFile], function(View) {
-        router.view = new View({model: router.app});
-        router.view.render();
-      });
+      if (!router.view) {
+        require(['views/index'], function(View) {
+          router.view = new View({model: router.app});
+          router.view.render();
+          success();
+        });
+      } else {
+        success();
+      }
     },
-    index: function() {
-      this.render('views/index');
-    }
+    index: function() { this.render(); },
+    api: function(api) { this.render('#' + api + '-api'); }
   });
 
   return new Router;
