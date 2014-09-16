@@ -2,6 +2,15 @@ body {
   overflow-x: hidden;
 }
 
+.body {
+  border-left: 1px solid #eee;
+  margin: 10px 0;
+}
+
+.jumbotron {
+  text-align: right;
+}
+
 /* make sidebar nav vertical */ 
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
@@ -25,9 +34,18 @@ body {
 }
 
 .navbar-default {
-  border-radius: 0;
+  border: none;
+  background-color: inherit;
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   background-image: none;
+}
+
+.api-list {
+  padding: 0 15px;
+}
+
+.blurb {
+  padding: 0 30px;
 }

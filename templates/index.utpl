@@ -28,33 +28,39 @@
       </div>
     </div>
   </div>
-  <div class='col-sm-9'>
+  <div class='body col-sm-9'>
     <div class='jumbotron'>
       <h1><%= app.get('title') %></h1>
       <p><%= app.get('short') %></p>
     </div>
 
-    <% app.apis.each(function(api) { %>
-      <div class='api' id='<%= api.get('name') %>-api'>
-        <h2><%= api.get('title') %></h2>
-        <p><%= api.get('short') %></p>
-        <div class='endpoints'>
-          <% api.endpoints.each(function(endpoint) { %>
-            <div
-              class='endpoint <%= endpoint.get('method') %>'
-              id='<%= endpoint.get('name') %>-endpoint'
-              >
-              <div class='head'>
-                <div class='method'><%= endpoint.get('method').toUpperCase() %></div>
-                <%= endpoint.get('url') %>
-                <div class='short'><%= endpoint.get('short') %></div>
+    <div class='blurb'>
+      <%= app.get('long') %>
+    </div>
+
+    <div class='api-list'>
+      <% app.apis.each(function(api) { %>
+        <div class='api' id='<%= api.get('name') %>-api'>
+          <h2><%= api.get('title') %></h2>
+          <p><%= api.get('short') %></p>
+          <div class='endpoints'>
+            <% api.endpoints.each(function(endpoint) { %>
+              <div
+                class='endpoint <%= endpoint.get('method') %>'
+                id='<%= endpoint.get('name') %>-endpoint'
+                >
+                <div class='head'>
+                  <div class='method'><%= endpoint.get('method').toUpperCase() %></div>
+                  <%= endpoint.get('url') %>
+                  <div class='short'><%= endpoint.get('short') %></div>
+                </div>
+                <div class='body'>
+                </div>
               </div>
-              <div class='body'>
-              </div>
-            </div>
-          <% }); %>
+            <% }); %>
+          </div>
         </div>
-      </div>
-    <% }); %>
+      <% }); %>
+    </div>
   </div>
 </div>
