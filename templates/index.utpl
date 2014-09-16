@@ -38,7 +38,7 @@
       <%= app.get('long') %>
     </div>
 
-    <div class='api-list'>
+    <div class='apis'>
       <% app.apis.each(function(api) { %>
         <div class='api' id='<%= api.get('name') %>-api'>
           <h2><%= api.get('title') %></h2>
@@ -49,8 +49,8 @@
                 class='endpoint <%= endpoint.get('method') %>'
                 id='<%= endpoint.get('name') %>-endpoint'
                 >
+                <div class='method'><%= endpoint.get('method').toUpperCase() %></div>
                 <div class='head'>
-                  <div class='method'><%= endpoint.get('method').toUpperCase() %></div>
                   <%= endpoint.get('url') %>
                   <div class='short'><%= endpoint.get('short') %></div>
                 </div>

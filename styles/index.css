@@ -42,10 +42,50 @@ body {
   background-image: none;
 }
 
-.api-list {
+.apis {
   padding: 0 15px;
 }
 
 .blurb {
   padding: 0 30px;
+}
+
+.endpoints {
+  padding: 0 15px;
+}
+
+/* endpoint formatting */
+
+.endpoint {
+  margin-bottom: 15px;
+  border: 1px solid;
+}
+
+.endpoint .method {
+  color: #fff;
+  float: left;
+  padding: 15px;
+  margin-right: 15px;
+  background-color: #555;
+}
+
+.endpoint .head {
+  background-color: #ddd;
+  padding: 15px;
+}
+
+.endpoint .head .short {
+  float: right;
+}
+
+.endpoint.get {
+  border-color: #0f6ab4;
+}
+
+.endpoint.get .head {
+  background-color: #c3d9ec;
+}
+
+.endpoint.get .method {
+  background-color: #0f6ab4;
 }
