@@ -15,9 +15,49 @@ define(
         var scroll = (loc ? $(loc).offset().top : 0);
         $('html, body').animate({ scrollTop: scroll });
       },
+      search: function(q) {
+        if (!q) {
+          this.$('.api').show();
+          this.$('.endpoint').show();
+          return;
+        }
+
+        q = q.split(' ');
+
+        this.$('.api').each(function() {
+          var api = $(this);
+          if (
+              !_.all(q, function(term) {
+                return api.text().toLowerCase().indexOf(
+                  term.toLowerCase()
+                ) !== -1;
+              })
+            ) {
+            api.hide();
+          } else {
+            api.show();
+          }
+        });
+
+        this.$('.endpoint').each(function() {
+          var endpoint = $(this);
+          if (
+              !_.all(q, function(term) {
+                return endpoint.text().toLowerCase().indexOf(
+                  term.toLowerCase()
+                ) !== -1;
+              })
+            ) {
+            endpoint.hide();
+          } else {
+            endpoint.show();
+          }
+        });
+      },
       events: {
         'click .topper': 'scrollTop',
-        'click .endpoints-toggle': 'toggleEndpoints'
+        'click .endpoints-toggle': 'toggleEndpoints',
+        'keyup #search': 'triggerSearch'
       },
       scrollTop: function(e) {
         e.preventDefault();
@@ -31,6 +71,9 @@ define(
           endpoint_links = this.$('.' + api_name + '-endpoint-link');
 
         endpoint_links.slideToggle();
+      },
+      triggerSearch: function(e) {
+        this.search(this.$('#search').val());
       }
     });
   }

@@ -1,5 +1,5 @@
 <div class='row'>
-  <div class='col-sm-3'>
+  <div class='col-sm-3 nav-col'>
     <div class='sidebar-nav'>
       <div class='navbar navbar-default' role='navigation'>
         <div class='navbar-header'>
@@ -17,8 +17,18 @@
         </div>
 
         <div class='navbar-collapse collapse sidebar-navbar-collapse'>
+          <a href='/#/'><h2><%= app.get('title') %></h2></a>
+          <div class='right-inner-addon'>
+            <span
+              class='glyphicon glyphicon-search'
+              ></span>
+            <input
+              type='search'
+              id='search'
+              class='form-control' 
+              >
+          </div>
           <ul class='nav navbar-nav'>
-            <li><a href='/#/'><h2><%= app.get('title') %></h2></a></li>
             <% app.apis.each(function(api) { %>
               <li class='api-link' data-api='<%= api.get('name') %>'>
                 <a href='/#/api/<%= api.get('name') %>'><%= api.get('title') %></a>
@@ -39,6 +49,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class='col-sm-3 offset-col'>
   </div>
   <div class='main col-sm-9'>
     <div class='jumbotron'>

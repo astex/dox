@@ -21,6 +21,10 @@ body {
   text-align: right;
 }
 
+.offset-col {
+  display: hidden;
+}
+
 /* make sidebar nav vertical */ 
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
@@ -40,6 +44,16 @@ body {
   .sidebar-nav .navbar li a {
     padding-top: 12px;
     padding-bottom: 12px;
+  }
+
+  .nav-col {
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .offset-col {
+    display: block;
   }
 }
 
@@ -79,6 +93,7 @@ li.endpoint-link .method.delete {
 
 .sidebar-nav .navbar {
   margin-bottom: 0;
+  padding-left: 10px;
 }
 
 .navbar-default {
@@ -94,8 +109,12 @@ li.endpoint-link .method.delete {
   border: none;
 }
 
-.nav h2 {
+.sidebar-nav a {
   color: #000;
+}
+
+.sidebar-nav a:hover {
+  text-decoration: none;
 }
 
 .apis {
@@ -195,4 +214,21 @@ li.endpoint-link .method.delete {
 
 .endpoint.delete .method {
   background-color: #a41e22;
+}
+
+/* utilities */
+
+.right-inner-addon {
+    position: relative;
+}
+
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+
+.right-inner-addon span {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
 }
