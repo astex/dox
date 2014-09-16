@@ -1,0 +1,78 @@
+[
+  {
+    "name": "user-index",
+    "url": "/api/user/",
+    "method": "get",
+    "url-params": {
+      "q": "[str] A search string to filter against (fiters on name and email).",
+      "user-type": "[enum(facebook, google, simple)]"
+    },
+    "short": "Gets a list of users.",
+    "out": "user.index",
+    "errors": ["unauthorized", "forbidden"]
+  },
+  {
+    "name": "user-get",
+    "url": "/api/user/{user_id}",
+    "method": "get",
+    "short": "Gets a user.",
+    "out": "user.get",
+    "errors": ["unauthorized", "not-found", "forbidden"]
+  },
+  {
+    "name": "user-post-simple",
+    "url": "/api/user/simple/",
+    "method": "post",
+    "short": "Posts a simple user.",
+    "long": "This can be used to post a simple in-house username/password type user.  This will log in the new user.",
+    "in": "user.post-simple",
+    "out": "user.get",
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+  },
+  {
+    "name": "user-post-facebook",
+    "url": "/api/user/facebook/",
+    "method": "post",
+    "short": "Posts a facebook user.",
+    "long": "This can be used to post a facebook OAuth user using a token and id.  This will log in the new user.",
+    "in": "user.post-facebook",
+    "out": "user.get",
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+  },
+  {
+    "name": "user-post-google",
+    "url": "/api/user/google/",
+    "method": "post",
+    "short": "Posts a google user.",
+    "long": "This can be used to post a google OAuth user using a token and id.  This will log in the new user.",
+    "in": "user.post-google",
+    "out": "user.get",
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+  },
+  {
+    "name": "user-put",
+    "url": "/api/user/{user_id}",
+    "method": "put",
+    "short": "Modifies a user.",
+    "long": "This can be used to change user information (e.g name, email, ...). Passwords should be changed via the separate <a href='#/endpoint/user-password-put'>/api/user/{user_id}/password PUT</a> endpoint, which will send email follow-up to the user before changing the password.",
+    "in": "user.put",
+    "out": "user.get",
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+  },
+  {
+    "name": "user-password-put",
+    "url": "/api/user/{user_id}/password",
+    "method": "put",
+    "short": "Modifies a user's password.",
+    "long": "This will send an email to the user confirming that they did indeed attempt to change their password with an included verification link.",
+    "out": "user.get",
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+  },
+  {
+    "name": "user-delete",
+    "url": "/api/user/{user_id}",
+    "method": "delete",
+    "short": "Deletes a user.",
+    "long": "This will send an email with a verification link to the user confirming that they do indeed intend to delete their account.  This will also log out the user."
+  }
+]

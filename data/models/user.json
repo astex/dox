@@ -1,0 +1,38 @@
+[
+  {
+    "name": "user",
+    "short": "A user.",
+    "payload": {
+      "index": ["user.get"],
+      "get": {
+        "id": "[int]",
+        "first": "[str] First name.",
+        "last": "[str] Last name.",
+        "email": "[str] Email address."
+      },
+      "post-simple": {
+        "email": "[str] Email address.",
+        "password": "[str]",
+        "confirm": "[str] The same as password.",
+        "remember": "[bool (optional)] Whether the session is permanent."
+      },
+      "post-facebook": {
+        "email": "[str (optional)] Email address.  This will be retreived from facebook if not included.",
+        "fb_id": "[str] The user id provided by facebook.",
+        "fb_token": "[str] The token provided by facebook.",
+        "remember": "[bool (optional)] Whether the session is permanent."
+      },
+      "post-google": {
+        "email": "[str (optional)] Email address.  This will be retreived from google if not included.",
+        "g_id": "[str] The user id provided by google.",
+        "g_token": "[str] The token provided by google.",
+        "remember": "[bool (optional)] Whether the session is permanent."
+      },
+      "put": {
+        "email": "[str] The new email.",
+        "first": "[str] The new first name.",
+        "last": "[str] The new last name."
+      }
+    }
+  }
+]

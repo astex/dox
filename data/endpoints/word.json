@@ -4,7 +4,7 @@
     "url": "/api/word/",
     "method": "get",
     "url-params": {
-      "word-ids": "A list of word ids to filter by."
+      "word-ids": "[Array] A list of word ids to filter by."
     },
     "short": "Gets a list of words.",
     "out": "word.index",

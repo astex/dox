@@ -2,6 +2,16 @@ body {
   overflow-x: hidden;
 }
 
+.topper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  background-color: #fff;
+  border-top: 1px solid #555;
+  border-right: 1px solid #555;
+}
+
 .main {
   border-left: 1px solid #eee;
   margin: 10px 0;
@@ -42,6 +52,10 @@ body {
   background-image: none;
 }
 
+.navbar-default .navbar-collapse {
+  border: none;
+}
+
 .nav h2 {
   color: #000;
 }
@@ -52,6 +66,14 @@ body {
 
 .blurb {
   padding: 0 30px;
+}
+
+.short {
+  float: right;
+}
+
+.endpoints {
+  margin-top: 15px;
 }
 
 /* endpoint formatting */
@@ -75,10 +97,6 @@ body {
   background-color: #ddd;
   padding: 15px;
   color: #555;
-}
-
-.endpoint .head .short {
-  float: right;
 }
 
 .endpoint .body {

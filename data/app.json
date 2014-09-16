@@ -2,13 +2,20 @@
   "title": "Example Application Documentation",
   "short": "An example application using words.",
   "long": "This is the included dox example application which contains endpoints about words.  It serves the application data from some statically located json files.  If necessary, these can be put behind an authentication wall (or served via your application) if you need to password-protect your docs.",
-  "models": ["data/models/word.json"],
+  "models": ["data/models/word.json", "data/models/user.json"],
   "apis": [
     {
       "title": "Word",
       "name": "word",
       "endpoints": "data/endpoints/word.json",
       "short": "An API for interacting with words."
+    },
+    {
+      "title": "User",
+      "name": "user",
+      "endpoints": "data/endpoints/user.json",
+      "short": "An API for interacting with users.",
+      "long": "This API can be used to post new users (with authentication information), modify existing users, and other related information, but can also be used to post new social users and retrieve submodels related to users."
     }
   ]
 }

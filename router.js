@@ -2,7 +2,8 @@ define(['jquery', 'backbone'], function($, Backbone) {
   var Router = Backbone.Router.extend({
     routes: {
       '': 'index',
-      ':api': 'api'
+      'api/:api': 'api',
+      'endpoint/:endpoint': 'endpoint'
     },
     render: function(loc) {
       var
@@ -22,7 +23,8 @@ define(['jquery', 'backbone'], function($, Backbone) {
       }
     },
     index: function() { this.render(); },
-    api: function(api) { this.render('#' + api + '-api'); }
+    api: function(api) { this.render('#' + api + '-api'); },
+    endpoint: function(endpoint) { this.render('#' + endpoint + '-endpoint'); }
   });
 
   return new Router;
