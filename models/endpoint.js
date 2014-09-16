@@ -14,7 +14,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
         }
 
         var
-          dot = reference.indexOf('dot'),
+          dot = reference.indexOf('.'),
           name = reference.substring(0,dot),
           model = app.models.findWhere({name: name});
 
@@ -23,14 +23,14 @@ define(['underscore', 'backbone'], function(_, Backbone) {
         }
 
         var
-          key = in_.substring(dot+1),
+          key = reference.substring(dot+1),
           payload = model.get('payload.' + key);
 
         if (!payload) {
           return;
         }
 
-        endpoint.set(endpoint_key, payload);
+        endpoint.set('payload.' + endpoint_key, payload);
       },
       evaluate: function(app) {
         // Evaluates references from in/out, errors, etc.

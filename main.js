@@ -5,7 +5,8 @@ require.config({
     'backbone': 'lib/js/backbone',
     'require-css': 'lib/js/require-css.min',
     'require-text': 'lib/js/require-text',
-    'bootstrap': 'lib/js/bootstrap.min'
+    'bootstrap': 'lib/js/bootstrap.min',
+    'prism': 'lib/js/prism'
   },
   shim: {
     jquery: {
@@ -23,6 +24,9 @@ require.config({
         'jquery', 'css!lib/css/bootstrap.min',
         'css!lib/css/bootstrap-theme.min'
       ]
+    },
+    prism: {
+      deps: ['css!lib/css/prism']
     }
   },
   map: {

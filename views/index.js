@@ -1,7 +1,7 @@
 define(
   [
     'jquery', 'underscore', 'backbone', 'text!templates/index.utpl',
-    'css!styles/index'
+    'css!styles/index', 'prism'
   ], function($, _, Backbone, IndexTemplate) {
     return Backbone.View.extend({
       template: _.template(IndexTemplate),

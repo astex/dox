@@ -5,15 +5,12 @@
     "payload": {
       "index": ["word.get"],
       "get": {
-        "id": "int",
-        "size": {
-          "type": "int",
-          "short": "The length of the word."
-        },
-        "content": "str"
+        "id": "[int]",
+        "size": "[int] The length of the word.",
+        "content": "[str]"
       },
       "post": {
-        "content": "str"
+        "content": "[str]"
       }
     }
   }

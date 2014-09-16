@@ -55,6 +55,18 @@
                   <div class='short'><%= endpoint.get('short') %></div>
                 </div>
                 <div class='body'>
+                  <% if (endpoint.get('in')) { %>
+                    In:
+                    <pre><code class='language-javascript'><%=
+                      JSON.stringify(endpoint.get('payload.in'), undefined, 2)
+                    %></code></pre>
+                  <% } %>
+                  <% if (endpoint.get('out')) { %>
+                    Out:
+                    <pre><code class='language-javascript'><%=
+                      JSON.stringify(endpoint.get('payload.out'), undefined, 2)
+                    %></pre></code>
+                  <% } %>
                   <p><%= endpoint.get('long') %></p>
                 </div>
               </div>
