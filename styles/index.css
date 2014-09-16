@@ -2,7 +2,7 @@ body {
   overflow-x: hidden;
 }
 
-.body {
+.main {
   border-left: 1px solid #eee;
   margin: 10px 0;
 }
@@ -79,6 +79,10 @@ body {
 
 .endpoint .head .short {
   float: right;
+}
+
+.endpoint .body {
+  padding: 15px;
 }
 
 /* get endpoints */
