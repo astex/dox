@@ -23,7 +23,17 @@
     "url": "/api/word/",
     "method": "post",
     "short": "Posts a new word.",
-    "long": "Users may use this endpoint to post a new word to the database.  The word\"s size is calculated automatically and will be ignored if included.",
+    "long": "Users may use this endpoint to post a new word to the database.  The word's size is calculated automatically and will be ignored if included.",
+    "in": "word.post",
+    "out": "word.get",
+    "errors": ["forbidden", "bad-input"]
+  },
+  {
+    "name": "word-put",
+    "url": "/api/word/{word_id}",
+    "method": "put",
+    "short": "Modifies a word.",
+    "long": "Users may use this endpoint to modify a word that has been previously posted to the database.  The word's size is calculated automatically and will be ignored if included.  The database is deduced from the url, not the model.  If an id is sent in on the model, it will be ignored.",
     "in": "word.post",
     "out": "word.get",
     "errors": ["not-found", "forbidden", "bad-input"]
