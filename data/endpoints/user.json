@@ -9,7 +9,10 @@
     },
     "short": "Gets a list of users.",
     "out": "user.index",
-    "errors": ["unauthorized", "forbidden"]
+    "errors": ["unauthorized", "forbidden"],
+    "permissions": {
+      "allow": ["admin", "user"]
+    }
   },
   {
     "name": "user-get",
@@ -17,7 +20,10 @@
     "method": "get",
     "short": "Gets a user.",
     "out": "user.get",
-    "errors": ["unauthorized", "not-found", "forbidden"]
+    "errors": ["unauthorized", "not-found", "forbidden"],
+    "permissions": {
+      "allow": ["admin", "self"]
+    }
   },
   {
     "name": "user-post-simple",
@@ -27,7 +33,11 @@
     "long": "This can be used to post a simple in-house username/password type user.  This will log in the new user.",
     "in": "user.post-simple",
     "out": "user.get",
-    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"],
+    "permissions": {
+      "allow": ["admin", "anon"],
+      "deny": ["user"]
+    }
   },
   {
     "name": "user-post-facebook",
@@ -37,7 +47,11 @@
     "long": "This can be used to post a facebook OAuth user using a token and id.  This will log in the new user.",
     "in": "user.post-facebook",
     "out": "user.get",
-    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"],
+    "permissions": {
+      "allow": ["admin", "anon"],
+      "deny": ["user"]
+    }
   },
   {
     "name": "user-post-google",
@@ -47,7 +61,11 @@
     "long": "This can be used to post a google OAuth user using a token and id.  This will log in the new user.",
     "in": "user.post-google",
     "out": "user.get",
-    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"],
+    "permissions": {
+      "allow": ["admin", "anon"],
+      "deny": ["user"]
+    }
   },
   {
     "name": "user-put",
@@ -57,7 +75,10 @@
     "long": "This can be used to change user information (e.g name, email, ...). Passwords should be changed via a separate <a href='#/endpoint/user-password-put'>endpoint</a>, which will send email follow-up to the user before changing the password.",
     "in": "user.put",
     "out": "user.get",
-    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"],
+    "permissions": {
+      "allow": ["admin", "self"]
+    }
   },
   {
     "name": "user-password-put",
@@ -66,7 +87,10 @@
     "short": "Modifies a user's password.",
     "long": "This will send an email to the user confirming that they did indeed attempt to change their password with an included verification link.",
     "out": "user.get",
-    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
+    "errors": ["unauthorized", "bad-input", "conflict", "forbidden"],
+    "permissions": {
+      "allow": ["self"]
+    }
   },
   {
     "name": "user-delete",
@@ -74,6 +98,9 @@
     "method": "delete",
     "short": "Deletes a user.",
     "long": "This will send an email with a verification link to the user confirming that they do indeed intend to delete their account.  This will also log out the user.",
-    "errors": ["unauthorized", "not-found", "forbidden"]
+    "errors": ["unauthorized", "not-found", "forbidden"],
+    "permissions": {
+      "allow": ["admin", "self"]
+    }
   }
 ]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "anon",
+    "title": "No User",
+    "short": "No user is logged in."
+  },
+  {
+    "name": "user",
+    "title": "User",
+    "short": "A user is logged in."
+  },
+  {
+    "name": "admin",
+    "title": "Admin",
+    "short": "An admin user is logged in."
+  },
+  {
+    "name": "self",
+    "title": "Self",
+    "short": "The response is data about the session user."
+  }
+]

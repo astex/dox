@@ -100,11 +100,7 @@
                       <div class='errors'>
                         Errors:<br>
                         <% _.each(endpoint.get('errors'), function(error_name) {
-                          var
-                            error = (
-                              app.errors.findWhere({name: error_name}) ||
-                              error_name
-                            );
+                          var error = app.errors.findWhere({name: error_name});
                           %>
                           <span
                             class='badge error'
@@ -118,6 +114,31 @@
                       </div>
                     <% } %>
                     <% if (endpoint.get('permissions')) { %>
+                      <div class='permissions'>
+                        Permissions:<br>
+                        <% for (
+                            var permission_type in endpoint.get('permissions')
+                          ) {
+                            %>
+                          <% _.each(
+                            endpoint.get('permissions')[permission_type],
+                            function(permission_name) {
+                              var
+                                permission = app.permissions.findWhere(
+                                  {name: permission_name}
+                                );
+                              %>
+                              <span
+                                class='badge permission <%= permission_type %>'
+                                data-toggle='tooltip'
+                                title='<%- permission.get('short') %>'>
+                                <%= permission.get('title') %>
+                              </span>
+                              <%
+                            }
+                          );
+                        } %>
+                      </div>
                     <% } %>
                     <p><%= endpoint.get('long') %></p>
                   </div>

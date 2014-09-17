@@ -153,6 +153,13 @@ li.endpoint-link .method.delete {
   float: right;
 }
 
+.badge {
+  background-color: #eee;
+  border: 1px solid #555;
+  color: #555;
+  font-weight: normal;
+}
+
 .endpoints {
   margin-top: 15px;
 }
@@ -244,6 +251,18 @@ li.endpoint-link .method.delete {
   background-color: #a41e22;
 }
 
+/* permission types */
+
+.permission.allow {
+  border-color: #10a54a;
+  background-color: #c3e8d1;
+}
+
+.permission.deny {
+  border-color: #a41e22;
+  background-color: #f3d6d7;
+}
+
 /* utilities */
 
 .right-inner-addon {
@@ -259,11 +278,4 @@ li.endpoint-link .method.delete {
     right: 0px;
     padding: 10px 12px;
     pointer-events: none;
-}
-
-.badge {
-  background-color: #eee;
-  border: 1px solid #555;
-  color: #555;
-  font-weight: normal;
 }

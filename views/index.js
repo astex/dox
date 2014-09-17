@@ -12,7 +12,7 @@ define(
         $(document).prop('title', this.model.get('title'));
 
         this.$('.endpoint-link').hide();
-        this.$('.error').tooltip();
+        this.$('.error, .permission').tooltip();
       },
       scroll: function(loc) {
         var scroll = (loc ? $(loc).offset().top : 0);

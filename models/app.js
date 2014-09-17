@@ -3,10 +3,11 @@ define(
     'underscore',
     'backbone',
     'models/errors',
+    'models/permissions',
     'models/data-models',
     'models/apis',
     'models/endpoints'
-  ], function(_, Backbone, Errors, DataModels, APIs, Endpoints) {
+  ], function(_, Backbone, Errors, Permissions, DataModels, APIs, Endpoints) {
     return Backbone.Model.extend({
       url: 'data/app.json',
       loadData: function(opts) {
@@ -15,7 +16,7 @@ define(
         var 
           app = this,
           success = _.after(
-            app.get('models').length + Object.keys(app.get('apis')).length + 1,
+            app.get('models').length + Object.keys(app.get('apis')).length + 2,
             function() {
               app.evaluateData();
               (opts && opts.success ? opts.success() : undefined);
@@ -25,6 +26,10 @@ define(
         app.errors = new Errors();
         app.errors.url = app.get('errors');
         app.errors.fetch({success: success});
+
+        app.permissions = new Permissions();
+        app.permissions.url = app.get('permissions');
+        app.permissions.fetch({success: success});
 
         _.each(app.get('models'), function(modelFile) {
           var models = new DataModels();
