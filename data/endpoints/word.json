@@ -26,6 +26,9 @@
     "long": "Users may use this endpoint to post a new word to the database.  The word's size is calculated automatically and will be ignored if included.",
     "in": "word.post",
     "out": "word.get",
+    "permissions": {
+      "allow": ["user"]
+    },
     "errors": ["forbidden", "bad-input"]
   },
   {
@@ -36,6 +39,9 @@
     "long": "Users may use this endpoint to modify a word that has been previously posted to the database.  The word's size is calculated automatically and will be ignored if included.  The database is deduced from the url, not the model.  If an id is sent in on the model, it will be ignored.",
     "in": "word.post",
     "out": "word.get",
+    "permissions": {
+      "allow": ["admin", "owner"]
+    },
     "errors": ["unauthorized", "not-found", "forbidden", "bad-input"]
   },
   {
@@ -44,6 +50,9 @@
     "method": "delete",
     "short": "Deletes a word.",
     "long": "Users may use this endpoint to delete a word from the database.  All data is ignored and a successful hit will have a 204 NO CONTENT status code.",
+    "permissions": {
+      "allow": ["admin", "owner"]
+    },
     "errors": ["not-found", "unauthorized", "forbidden"]
   }
 ]

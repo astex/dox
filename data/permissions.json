@@ -18,5 +18,10 @@
     "name": "self",
     "title": "Self",
     "short": "The response is data about the session user."
+  },
+  {
+    "name": "owner",
+    "title": "Owner",
+    "short": "The user owns this resource."
   }
 ]
