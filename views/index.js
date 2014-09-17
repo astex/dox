@@ -8,8 +8,11 @@ define(
       el: $('body'),
       render: function() {
         this.$el.html(this.template({app: this.model}));
+
         $(document).prop('title', this.model.get('title'));
+
         this.$('.endpoint-link').hide();
+        this.$('.error').tooltip();
       },
       scroll: function(loc) {
         var scroll = (loc ? $(loc).offset().top : 0);

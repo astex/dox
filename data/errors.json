@@ -1,0 +1,38 @@
+[
+  {
+    "name": "forbidden",
+    "title": "Forbidden",
+    "status": "403",
+    "short": "CSRF check failed.  Check your headers."
+  },
+  {
+    "name": "unauthorized",
+    "title": "Unauthorized",
+    "status": "401",
+    "short": "You don't have permission to do that.  Try logging in."
+  },
+  {
+    "name": "not-found",
+    "title": "Not Found",
+    "status": "404",
+    "short": "That endpoint was not found.  Check ids in the url."
+  },
+  {
+    "name": "bad-input",
+    "title": "Bad Input",
+    "status": "400",
+    "short": "The posted resource is invalid.  Check the response for details."
+  },
+  {
+    "name": "conflict",
+    "title": "Conflict",
+    "status": "409",
+    "short": "The posted resource already exists.  Check unique keys (e.g email)."
+  },
+  {
+    "name": "bad-method",
+    "title": "Method Not Allowed",
+    "status": "405",
+    "short": "That method is not defined at that endpoint."
+  }
+]

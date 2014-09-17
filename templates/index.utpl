@@ -1,108 +1,133 @@
-<div class='row'>
-  <div class='col-sm-3 nav-col'>
-    <div class='sidebar-nav'>
-      <div class='navbar navbar-default' role='navigation'>
-        <div class='navbar-header'>
-          <button
-            type='button'
-            class='navbar-toggle'
-            data-toggle='collapse'
-            data-target='.sidebar-navbar-collapse'
-            >
-            <span class='sr-only'>Toggle navigation</span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-          </button>
-        </div>
-
-        <div class='navbar-collapse collapse sidebar-navbar-collapse'>
-          <a href='/#/'><h2><%= app.get('title') %></h2></a>
-          <div class='right-inner-addon'>
-            <span
-              class='glyphicon glyphicon-search'
-              ></span>
-            <input
-              type='search'
-              id='search'
-              class='form-control' 
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-3 nav-col'>
+      <div class='sidebar-nav'>
+        <div class='navbar navbar-default' role='navigation'>
+          <div class='navbar-header'>
+            <button
+              type='button'
+              class='navbar-toggle'
+              data-toggle='collapse'
+              data-target='.sidebar-navbar-collapse'
               >
+              <span class='sr-only'>Toggle navigation</span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+            </button>
           </div>
-          <ul class='nav navbar-nav'>
-            <% app.apis.each(function(api) { %>
-              <li class='api-link' data-api='<%= api.get('name') %>'>
-                <a href='/#/api/<%= api.get('name') %>'><%= api.get('title') %></a>
-                <a href='#!' class='endpoints-toggle'>(endpoints)</a>
-              </li>
-              <% api.endpoints.each(function(endpoint) { %>
-                <li class='endpoint-link <%= api.get('name') %>-endpoint-link'>
-                  <a href='/#/endpoint/<%= endpoint.get('name') %>'>
-                    <span class='method <%= endpoint.get('method') %>'>
-                      <%= endpoint.get('method') %>
-                    </span>
-                    <span class='url'><%= endpoint.get('url') %></span>
-                  </a>
+
+          <div class='navbar-collapse collapse sidebar-navbar-collapse'>
+            <a href='/#/'><h2><%= app.get('title') %></h2></a>
+            <div class='right-inner-addon'>
+              <span
+                class='glyphicon glyphicon-search'
+                ></span>
+              <input
+                type='search'
+                id='search'
+                class='form-control' 
+                >
+            </div>
+            <ul class='nav navbar-nav'>
+              <% app.apis.each(function(api) { %>
+                <li class='api-link' data-api='<%= api.get('name') %>'>
+                  <a href='/#/api/<%= api.get('name') %>'><%= api.get('title') %></a>
+                  <a href='#!' class='endpoints-toggle'>(endpoints)</a>
                 </li>
+                <% api.endpoints.each(function(endpoint) { %>
+                  <li class='endpoint-link <%= api.get('name') %>-endpoint-link'>
+                    <a href='/#/endpoint/<%= endpoint.get('name') %>'>
+                      <span class='method <%= endpoint.get('method') %>'>
+                        <%= endpoint.get('method') %>
+                      </span>
+                      <span class='url'><%= endpoint.get('url') %></span>
+                    </a>
+                  </li>
+                <% }); %>
               <% }); %>
-            <% }); %>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class='col-sm-3 offset-col'>
-  </div>
-  <div class='main col-sm-9'>
-    <div class='jumbotron'>
-      <h1><%= app.get('title') %></h1>
-      <p><%= app.get('short') %></p>
+    <div class='col-sm-3 offset-col'>
     </div>
+    <div class='main col-sm-9'>
+      <div class='jumbotron'>
+        <h1><%= app.get('title') %></h1>
+        <p><%= app.get('short') %></p>
+      </div>
 
-    <div class='blurb'>
-      <%= app.get('long') %>
-    </div>
+      <div class='blurb'>
+        <%= app.get('long') %>
+      </div>
 
-    <div class='apis'>
-      <% app.apis.each(function(api) { %>
-        <div class='api' id='<%= api.get('name') %>-api'>
-          <h2><%= api.get('title') %> <small><%= api.get('short') %></small></h2>
+      <div class='apis'>
+        <% app.apis.each(function(api) { %>
+          <div class='api' id='<%= api.get('name') %>-api'>
+            <h2><%= api.get('title') %> <small><%= api.get('short') %></small></h2>
 
-          <div class='blurb'>
-            <%= api.get('long') %>
-          </div>
+            <div class='blurb'>
+              <%= api.get('long') %>
+            </div>
 
-          <div class='endpoints'>
-            <% api.endpoints.each(function(endpoint) { %>
-              <div
-                class='endpoint <%= endpoint.get('method') %>'
-                id='<%= endpoint.get('name') %>-endpoint'
-                >
-                <div class='method'><%= endpoint.get('method').toUpperCase() %></div>
-                <div class='head'>
-                  <%= endpoint.get('url') %>
-                  <div class='short'><%= endpoint.get('short') %></div>
+            <div class='endpoints'>
+              <% api.endpoints.each(function(endpoint) { %>
+                <div
+                  class='endpoint <%= endpoint.get('method') %>'
+                  id='<%= endpoint.get('name') %>-endpoint'
+                  >
+                  <div class='method'><%= endpoint.get('method').toUpperCase() %></div>
+                  <div class='head'>
+                    <%= endpoint.get('url') %>
+                    <div class='short'><%= endpoint.get('short') %></div>
+                  </div>
+                  <div class='body'>
+                    <% if (endpoint.get('in')) { %>
+                      In:
+                      <pre><code class='language-javascript'><%=
+                        JSON.stringify(endpoint.get('payload.in'), undefined, 2)
+                      %></code></pre>
+                    <% } %>
+                    <% if (endpoint.get('out')) { %>
+                      Out:
+                      <pre><code class='language-javascript'><%=
+                        JSON.stringify(endpoint.get('payload.out'), undefined, 2)
+                      %></code></pre>
+                    <% } %>
+                    <% if (endpoint.get('errors')) { %>
+                      <div class='errors'>
+                        Errors:<br>
+                        <% _.each(endpoint.get('errors'), function(error_name) {
+                          var
+                            error = (
+                              app.errors.findWhere({name: error_name}) ||
+                              error_name
+                            );
+                          %>
+                          <span
+                            class='badge error'
+                            data-toggle='tooltip'
+                            title='<%- error.get('short') %>'
+                            >
+                            <%= error.get('status') %>: <%= error.get('title') %>
+                          </span>
+                          <%
+                        }); %>
+                      </div>
+                    <% } %>
+                    <% if (endpoint.get('permissions')) { %>
+                    <% } %>
+                    <p><%= endpoint.get('long') %></p>
+                  </div>
                 </div>
-                <div class='body'>
-                  <% if (endpoint.get('in')) { %>
-                    In:
-                    <pre><code class='language-javascript'><%=
-                      JSON.stringify(endpoint.get('payload.in'), undefined, 2)
-                    %></code></pre>
-                  <% } %>
-                  <% if (endpoint.get('out')) { %>
-                    Out:
-                    <pre><code class='language-javascript'><%=
-                      JSON.stringify(endpoint.get('payload.out'), undefined, 2)
-                    %></pre></code>
-                  <% } %>
-                  <p><%= endpoint.get('long') %></p>
-                </div>
-              </div>
-            <% }); %>
+              <% }); %>
+            </div>
           </div>
-        </div>
-      <% }); %>
+        <% }); %>
+      </div>
     </div>
+    <div class='topper'><a href='#!'>^ Top</a></div>
   </div>
-  <div class='topper'><a href='#!'>^ Top</a></div>
 </div>

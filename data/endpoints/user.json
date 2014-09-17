@@ -54,7 +54,7 @@
     "url": "/api/user/{user_id}",
     "method": "put",
     "short": "Modifies a user.",
-    "long": "This can be used to change user information (e.g name, email, ...). Passwords should be changed via the separate <a href='#/endpoint/user-password-put'>/api/user/{user_id}/password PUT</a> endpoint, which will send email follow-up to the user before changing the password.",
+    "long": "This can be used to change user information (e.g name, email, ...). Passwords should be changed via a separate <a href='#/endpoint/user-password-put'>endpoint</a>, which will send email follow-up to the user before changing the password.",
     "in": "user.put",
     "out": "user.get",
     "errors": ["unauthorized", "bad-input", "conflict", "forbidden"]
@@ -73,6 +73,7 @@
     "url": "/api/user/{user_id}",
     "method": "delete",
     "short": "Deletes a user.",
-    "long": "This will send an email with a verification link to the user confirming that they do indeed intend to delete their account.  This will also log out the user."
+    "long": "This will send an email with a verification link to the user confirming that they do indeed intend to delete their account.  This will also log out the user.",
+    "errors": ["unauthorized", "not-found", "forbidden"]
   }
 ]

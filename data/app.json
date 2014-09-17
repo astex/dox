@@ -2,6 +2,7 @@
   "title": "Example Application Documentation",
   "short": "An example application using words.",
   "long": "This is the included dox example application which contains endpoints about words.  It serves the application data from some statically located json files.  If necessary, these can be put behind an authentication wall (or served via your application) if you need to password-protect your docs.",
+  "errors": "data/errors.json",
   "models": ["data/models/word.json", "data/models/user.json"],
   "apis": [
     {
