@@ -51,9 +51,7 @@
         </div>
       </div>
     </div>
-    <div class='col-sm-3 offset-col'>
-    </div>
-    <div class='main col-sm-9'>
+    <div class='main col-sm-offset-3 col-sm-9'>
       <div class='jumbotron'>
         <h1><%= app.get('title') %></h1>
         <p><%= app.get('short') %></p>
