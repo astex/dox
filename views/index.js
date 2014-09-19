@@ -61,7 +61,8 @@ define(
       events: {
         'click .topper': 'scrollTop',
         'click .endpoints-toggle': 'toggleEndpointLinks',
-        'click .endpoint .head': 'toggleEndpoint',
+        'click .endpoint>.head': 'toggleEndpoint',
+        'click .endpoint>.method': 'toggleEndpoint',
         'keyup #search': 'triggerSearch'
       },
       scrollTop: function(e) {

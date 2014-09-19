@@ -180,7 +180,7 @@ li.endpoint-link .method.delete {
   border: 1px solid;
 }
 
-.endpoint .method {
+.endpoint>.method {
   color: #fff;
   float: left;
   padding: 15px;
@@ -188,9 +188,10 @@ li.endpoint-link .method.delete {
   background-color: #555;
   font-weight: bold;
   width: 90px;
+  cursor: pointer;
 }
 
-.endpoint .head {
+.endpoint>.head {
   background-color: #ddd;
   padding: 15px;
   color: #555;
