@@ -117,7 +117,7 @@
                             title='<%- error.get('short') %>'
                             >
                             <%= error.get('status') %>: <%= error.get('title') %>
-                          </span>
+                          </span>&nbsp;
                           <%
                         }); %>
                       </div>
@@ -142,7 +142,7 @@
                                 data-toggle='tooltip'
                                 title='<%- permission.get('short') %>'>
                                 <%= permission.get('title') %>
-                              </span>
+                              </span>&nbsp;
                               <%
                             }
                           );
