@@ -13,6 +13,7 @@ define(
 
         this.$('.endpoint-link').hide();
         this.$('.error, .permission').tooltip();
+        this.$('.endpoint .body').hide();
       },
       scroll: function(loc) {
         var scroll = (loc ? $(loc).offset().top : 0);
@@ -59,14 +60,15 @@ define(
       },
       events: {
         'click .topper': 'scrollTop',
-        'click .endpoints-toggle': 'toggleEndpoints',
+        'click .endpoints-toggle': 'toggleEndpointLinks',
+        'click .endpoint .head': 'toggleEndpoint',
         'keyup #search': 'triggerSearch'
       },
       scrollTop: function(e) {
         e.preventDefault();
         this.scroll();
       },
-      toggleEndpoints: function(e) {
+      toggleEndpointLinks: function(e) {
         e.preventDefault();
         var
           $el = $(e.target),
@@ -74,6 +76,14 @@ define(
           endpoint_links = this.$('.' + api_name + '-endpoint-link');
 
         endpoint_links.slideToggle();
+      },
+      toggleEndpoint: function(e) {
+        var
+          head = $(e.target),
+          endpoint = head.parents('.endpoint'),
+          body = endpoint.find('.body');
+
+        body.slideToggle();
       },
       triggerSearch: function(e) {
         this.search(this.$('#search').val());

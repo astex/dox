@@ -194,6 +194,7 @@ li.endpoint-link .method.delete {
   background-color: #ddd;
   padding: 15px;
   color: #555;
+  cursor: pointer;
 }
 
 .endpoint .body {
