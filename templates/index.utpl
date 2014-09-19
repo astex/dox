@@ -87,7 +87,7 @@
                       <table class='table table-striped url-params'>
                         <% for (var parameter_name in endpoint.get('url-params')) { %>
                           <tr>
-                            <td><%= parameter_name %></td>
+                            <td><code><%= parameter_name %></code></td>
                             <td><%= endpoint.get('url-params')[parameter_name] %></td>
                           </tr>
                         <% } %>
