@@ -68,6 +68,11 @@ pre code[class*="language-"] {
     padding-bottom: 12px;
   }
 
+  .sidebar-nav .navbar li.endpoint-link>a {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .nav-col {
     position: fixed;
     height: 100vh;
@@ -88,6 +93,11 @@ li.endpoint-link {
   padding-left: 15px;
   font-size: .8em;
   white-space: nowrap;
+}
+
+li.endpoint-link>a {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 li.endpoint-link .method {
