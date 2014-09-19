@@ -82,21 +82,32 @@
                     <div class='short'><%= endpoint.get('short') %></div>
                   </div>
                   <div class='body'>
+                    <% if (endpoint.get('url-params')) { %>
+                      <div class='section-label'>URL Parameters:</div>
+                      <table class='table table-striped url-params'>
+                        <% for (var parameter_name in endpoint.get('url-params')) { %>
+                          <tr>
+                            <td><%= parameter_name %></td>
+                            <td><%= endpoint.get('url-params')[parameter_name] %></td>
+                          </tr>
+                        <% } %>
+                      </table>
+                    <% } %>
                     <% if (endpoint.get('in')) { %>
-                      In:
+                      <div class='section-label'>In:</div>
                       <pre><code class='language-javascript'><%=
                         JSON.stringify(endpoint.get('payload.in'), undefined, 2)
                       %></code></pre>
                     <% } %>
                     <% if (endpoint.get('out')) { %>
-                      Out:
+                      <div class='section-label'>Out:</div>
                       <pre><code class='language-javascript'><%=
                         JSON.stringify(endpoint.get('payload.out'), undefined, 2)
                       %></code></pre>
                     <% } %>
                     <% if (endpoint.get('errors')) { %>
                       <div class='errors'>
-                        Errors:<br>
+                        <div class='section-label'>Errors:</div>
                         <% _.each(endpoint.get('errors'), function(error_name) {
                           var error = app.errors.findWhere({name: error_name});
                           %>
@@ -113,7 +124,7 @@
                     <% } %>
                     <% if (endpoint.get('permissions')) { %>
                       <div class='permissions'>
-                        Permissions:<br>
+                        <div class='section-label'>Permissions:</div>
                         <% for (
                             var permission_type in endpoint.get('permissions')
                           ) {

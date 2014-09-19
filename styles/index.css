@@ -169,6 +169,11 @@ li.endpoint-link .method.delete {
   margin-top: 15px;
 }
 
+.section-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 .errors, .permissions {
   margin-bottom: 10px;
 }
