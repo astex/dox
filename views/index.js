@@ -82,9 +82,14 @@ define(
         var
           head = $(e.target),
           endpoint = head.parents('.endpoint'),
-          body = endpoint.find('.body');
+          body = endpoint.find('.body'),
+          wasHidden = body.is(':hidden');
 
         body.slideToggle();
+        // Scroll to the newly visible element.
+        if (wasHidden) {
+          this.scroll(endpoint);
+        }
       },
       triggerSearch: function(e) {
         this.search(this.$('#search').val());
