@@ -28,33 +28,27 @@ define(
 
         q = q.split(' ');
 
-        this.$('.api').each(function() {
-          var api = $(this);
-          if (
-              !_.all(q, function(term) {
-                return api.text().toLowerCase().indexOf(
-                  term.toLowerCase()
-                ) !== -1;
-              })
-            ) {
-            api.hide();
+        var matches = function(obj) {
+          return _.all(q, function(term) {
+            return $(obj).text().toLowerCase().indexOf(
+              term.toLowerCase()
+            ) !== -1;
+          });
+        };
+
+        this.$('.endpoint').each(function() {
+          if (!matches(this)) {
+            $(this).hide();
           } else {
-            api.show();
+            $(this).show();
           }
         });
 
-        this.$('.endpoint').each(function() {
-          var endpoint = $(this);
-          if (
-              !_.all(q, function(term) {
-                return endpoint.text().toLowerCase().indexOf(
-                  term.toLowerCase()
-                ) !== -1;
-              })
-            ) {
-            endpoint.hide();
+        this.$('.api').each(function() {
+          if (!_.all($(this).find('.endpoint'), matches)) {
+            $(this).hide();
           } else {
-            endpoint.show();
+            $(this).show();
           }
         });
       },
