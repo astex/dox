@@ -45,7 +45,7 @@ define(
         });
 
         this.$('.api').each(function() {
-          if (!_.all($(this).find('.endpoint'), matches)) {
+          if (!_.any($(this).find('.endpoint'), matches)) {
             $(this).hide();
           } else {
             $(this).show();
